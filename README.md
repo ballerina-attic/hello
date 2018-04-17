@@ -18,7 +18,7 @@ Annotation based build extension implementation for ballerina.
 
 1. Download and install JDK 8 or later
 2. Get a clone or download the source from this repository (https://github.com/ballerinax/hello)
-3. Run the Maven command ``mvn clean  install`` from within the docker directory.
+3. Run the Maven command ``mvn clean  install`` from within the hello directory.
 4. Copy ``target/hello-extension-0.970.0.jar`` file to ``<BALLERINA_HOME>/bre/lib`` directory.
 5. Run ``ballerina build <bal filename>`` to generate artifacts.
 
