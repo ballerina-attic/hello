@@ -1,6 +1,6 @@
 # Ballerina Hello Extension
  
-Annotation based extension implementation for ballerina. 
+Annotation based build extension implementation for ballerina. 
 
 ## Features:
 - Generate text file with the greetings 
