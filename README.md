@@ -1,4 +1,4 @@
-# Ballerina HelloWorld Extension
+# Ballerina Hello Extension
  
 Annotation based extension implementation for ballerina. 
 
