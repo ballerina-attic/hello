@@ -25,6 +25,10 @@ public class HelloModel {
     private static HelloModel instance;
     private String greeting;
 
+    private HelloModel() {
+        greeting = "Hello!";
+    }
+
     public static HelloModel getInstance() {
         synchronized (HelloModel.class) {
             if (instance == null) {

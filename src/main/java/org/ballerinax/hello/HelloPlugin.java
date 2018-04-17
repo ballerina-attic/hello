@@ -75,9 +75,6 @@ public class HelloPlugin extends AbstractCompilerPlugin {
         //extract file name.
         String filePath = binaryPath.toAbsolutePath().toString().replace(".balx", ".txt");
         String greeting = HelloModel.getInstance().getGreeting();
-        if (greeting == null) {
-            return;
-        }
         try {
             writeToFile(greeting, filePath);
         } catch (IOException e) {
