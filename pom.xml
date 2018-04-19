@@ -21,7 +21,7 @@
     <parent>
         <groupId>org.ballerinalang</groupId>
         <artifactId>ballerina-parent</artifactId>
-        <version>0.970.0-beta1-SNAPSHOT</version>
+        <version>0.970.0-beta2-SNAPSHOT</version>
     </parent>
 
     <groupId>org.ballerainax.hello</groupId>
@@ -32,12 +32,6 @@
     <url>http://ballerinalang.org</url>
 
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-lang</artifactId>
@@ -66,15 +60,6 @@
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-http</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-jdk14</artifactId>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <repositories>
@@ -100,53 +85,7 @@
                 <enabled>false</enabled>
             </releases>
         </repository>
-        <repository>
-            <id>wso2-nexus</id>
-            <name>WSO2 internal Repository</name>
-            <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
-            </releases>
-        </repository>
     </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>wso2.releases</id>
-            <name>WSO2 Releases Repository</name>
-            <url>http://maven.wso2.org/nexus/content/repositories/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
-            </releases>
-        </pluginRepository>
-        <pluginRepository>
-            <id>wso2.snapshots</id>
-            <name>WSO2 Snapshot Repository</name>
-            <url>http://maven.wso2.org/nexus/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </pluginRepository>
-        <pluginRepository>
-            <id>wso2-nexus</id>
-            <name>WSO2 internal Repository</name>
-            <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>ignore</checksumPolicy>
-            </releases>
-        </pluginRepository>
-    </pluginRepositories>
-
 
     <build>
         <resources>
@@ -165,33 +104,6 @@
         </resources>
 
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.19.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                        </goals>
-                        <configuration>
-                            <includes>
-                                <include>**/*.java</include>
-                            </includes>
-                            <forkCount>3</forkCount>
-                            <reuseForks>true</reuseForks>
-                            <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>verify</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -256,7 +168,6 @@
                                     <exclude>org.ballerinalang:ballerina-mime</exclude>
                                     <exclude>org.ballerinalang:ballerina-logging</exclude>
                                     <exclude>org.ballerinalang:ballerina-http</exclude>
-                                    <exclude>junit:junit</exclude>
                                     <exclude>org.bsc.maven:maven-processor-plugin</exclude>
                                 </excludes>
                             </artifactSet>
@@ -281,6 +192,7 @@
     <properties>
         <mvn.processor.plugin.version>2.2.4</mvn.processor.plugin.version>
         <junit.version>4.12</junit.version>
-        <generated.ballerina.source.directory>${project.build.directory}/../src/main/ballerina</generated.ballerina.source.directory>
+        <generated.ballerina.source.directory>${project.build.directory}/../src/main/ballerina
+        </generated.ballerina.source.directory>
     </properties>
 </project>

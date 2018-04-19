@@ -26,6 +26,7 @@ public class HelloModel {
     private String greeting;
 
     private HelloModel() {
+        // Initialize with the default greeting.
         greeting = "Hello!";
     }
 
