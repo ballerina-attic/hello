@@ -40,6 +40,7 @@ import java.util.List;
  * Compiler plugin to generate greetings.
  */
 @SupportedAnnotationPackages(
+        // Tell compiler we are only interested in ballerinax.hello annotations.
         value = "ballerinax.hello"
 )
 public class HelloPlugin extends AbstractCompilerPlugin {
@@ -48,17 +49,20 @@ public class HelloPlugin extends AbstractCompilerPlugin {
 
     @Override
     public void init(DiagnosticLog diagnosticLog) {
+        // Initialize the logger.
         this.dlog = diagnosticLog;
     }
 
     @Override
     public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations) {
-        //process annotation
+        //Iterate through the annotation Attachment Nodes
         for (AnnotationAttachmentNode attachmentNode : annotations) {
             List<BLangRecordLiteral.BLangRecordKeyValue> keyValues =
                     ((BLangRecordLiteral) ((BLangAnnotationAttachment) attachmentNode).expr).getKeyValuePairs();
+            //Iterate through the annotations
             for (BLangRecordLiteral.BLangRecordKeyValue keyValue : keyValues) {
                 String annotationValue = keyValue.getValue().toString();
+                //Match annotation key and assign the value
                 switch (keyValue.getKey().toString()) {
                     case "salutation":
                         HelloModel.getInstance().setGreeting(annotationValue);
