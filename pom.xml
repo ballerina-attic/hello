@@ -19,12 +19,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <groupId>org.ballerinalang</groupId>
-        <artifactId>ballerina-parent</artifactId>
-        <version>0.970.0-beta2-SNAPSHOT</version>
+        <groupId>io.ballerina</groupId>
+        <artifactId>ballerina</artifactId>
+        <version>0.970.0-beta4</version>
     </parent>
 
     <groupId>org.ballerainax.hello</groupId>
+    <version>0.970.0-beta5-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>hello-extension</artifactId>
     <packaging>jar</packaging>
@@ -35,30 +36,7 @@
         <dependency>
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-lang</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.ballerinalang</groupId>
-            <artifactId>ballerina-launcher</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.ballerinalang</groupId>
-            <artifactId>ballerina-builtin</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.ballerinalang</groupId>
-            <artifactId>ballerina-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.ballerinalang</groupId>
-            <artifactId>ballerina-mime</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.ballerinalang</groupId>
-            <artifactId>ballerina-logging</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.ballerinalang</groupId>
-            <artifactId>ballerina-http</artifactId>
+            <version>${ballerina.lang.version}</version>
         </dependency>
     </dependencies>
 
@@ -98,7 +76,7 @@
 
             <!-- copy ballerina annotation sources to the jar -->
             <resource>
-                <directory>${generated.ballerina.source.directory}</directory>
+                <directory>${ballerina.source.directory}</directory>
                 <targetPath>META-INF/</targetPath>
             </resource>
         </resources>
@@ -192,7 +170,7 @@
     <properties>
         <mvn.processor.plugin.version>2.2.4</mvn.processor.plugin.version>
         <junit.version>4.12</junit.version>
-        <generated.ballerina.source.directory>${project.build.directory}/../src/main/ballerina
-        </generated.ballerina.source.directory>
+        <ballerina.lang.version>0.970.0-beta4</ballerina.lang.version>
+        <ballerina.source.directory>${project.build.directory}/../src/main/ballerina</ballerina.source.directory>
     </properties>
 </project>
