@@ -1,10 +1,9 @@
-package ballerinax.hello;
-
-@Description {value:"Hello annotation configuration"}
-@Field {value:"salutation: Greeting or Acknowledgement"}
+documentation {Hello annotation configuration
+    F{{salutation}} - Greeting
+}
 public type HelloConfiguration {
     string salutation;
 };
 
-@Description {value:"Configurations annotation for Docker"}
+documentation {@hello:Greeting annotation configuration}
 public annotation <service> Greeting HelloConfiguration;
