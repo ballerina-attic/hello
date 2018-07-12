@@ -20,6 +20,7 @@ package org.ballerinax.hello;
 
 import org.ballerinalang.compiler.plugins.AbstractCompilerPlugin;
 import org.ballerinalang.compiler.plugins.SupportedAnnotationPackages;
+import org.ballerinalang.model.elements.PackageID;
 import org.ballerinalang.model.tree.AnnotationAttachmentNode;
 import org.ballerinalang.model.tree.ServiceNode;
 import org.ballerinalang.util.diagnostic.Diagnostic;
@@ -75,7 +76,7 @@ public class HelloPlugin extends AbstractCompilerPlugin {
     }
 
     @Override
-    public void codeGenerated(Path binaryPath) {
+    public void codeGenerated(PackageID packageID, Path binaryPath) {
         //extract file name.
         String filePath = binaryPath.toAbsolutePath().toString().replace(".balx", ".txt");
         String greeting = HelloModel.getInstance().getGreeting();
