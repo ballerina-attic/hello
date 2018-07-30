@@ -1,7 +1,7 @@
 documentation {Hello annotation configuration
     F{{salutation}} - Greeting
 }
-public type HelloConfiguration {
+public type HelloConfiguration record {
     string salutation;
 };
 
