@@ -1,9 +1,9 @@
-documentation {Hello annotation configuration
-    F{{salutation}} - Greeting
-}
+# Hello annotation configuration
+#
+# + salutation - Greeting
 public type HelloConfiguration record {
     string salutation;
 };
 
-documentation {@hello:Greeting annotation configuration}
+# @hello:Greeting annotation configuration
 public annotation <service> Greeting HelloConfiguration;
