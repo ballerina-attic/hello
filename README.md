@@ -1,3 +1,5 @@
+[![Travis (.org)](https://img.shields.io/travis/ballerinax/hello.svg?logo=travis)](https://travis-ci.org/ballerinax/hello)
+
 # Ballerina Hello Extension
  
 Annotation based build extension implementation for ballerina. 
