@@ -54,6 +54,7 @@ public class HelloPlugin extends AbstractCompilerPlugin {
         this.dlog = diagnosticLog;
     }
 
+    // Our annotation is attached to service<> objects.
     @Override
     public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations) {
         //Iterate through the annotation Attachment Nodes
@@ -64,12 +65,9 @@ public class HelloPlugin extends AbstractCompilerPlugin {
             for (BLangRecordLiteral.BLangRecordKeyValue keyValue : keyValues) {
                 String annotationValue = keyValue.getValue().toString();
                 //Match annotation key and assign the value
-                switch (keyValue.getKey().toString()) {
-                    case "salutation":
-                        HelloModel.getInstance().setGreeting(annotationValue);
-                        break;
-                    default:
-                        break;
+                String s = keyValue.getKey().toString();
+                if ("salutation".equals(s)) {
+                    HelloModel.getInstance().setGreeting(annotationValue);
                 }
             }
         }
