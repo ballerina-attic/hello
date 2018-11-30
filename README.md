@@ -22,7 +22,7 @@ Annotation based build extension implementation for ballerina.
 2. Get a clone or download the source from this repository (https://github.com/ballerinax/hello)
 3. Run the Maven command ``mvn clean  install`` from within the hello directory.
 4. Copy ``target/hello-extension-0.970.0.jar`` file to ``<BALLERINA_HOME>/bre/lib`` directory.
-5. Run ``ballerina build <bal filename>`` to generate artifacts.
+5. Run ``ballerina build <bal_filename>`` to generate artifacts.
 
 The hello world artifacts will be created in a folder called target with following structure.
 ```bash
@@ -36,14 +36,14 @@ target/
 import ballerina/http;
 import ballerinax/hello;
 
-@hello:Greeting{salutation : "Guten Tag!"}
+@hello:Greeting { salutation: "Guten Tag!" }
 @http:ServiceConfig {
-    basePath:"/helloWorld"
+    basePath: "/helloWorld"
 }
-service<http:Service> helloWorld bind {port:9091}{
-    sayHello (endpoint outboundEP, http:Request request) {
+service helloWorld on new http:Listener(9091) {
+    resource function sayHello(http:Caller outboundEP, http:Request request) {
         http:Response response = new;
-        response.setStringPayload("Hello, World from service helloWorld ! \n");
+        response.setTextPayload("Hello, World from service helloWorld ! \n");
         _ = outboundEP -> respond(response);
     }
 }
