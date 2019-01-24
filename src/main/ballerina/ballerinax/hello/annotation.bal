@@ -2,7 +2,8 @@
 #
 # + salutation - Greeting
 public type HelloConfiguration record {
-    string salutation;
+    string salutation = "Hello!";
+    !...
 };
 
 # @hello:Greeting annotation configuration
