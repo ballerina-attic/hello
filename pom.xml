@@ -21,11 +21,11 @@
     <parent>
         <groupId>io.ballerina</groupId>
         <artifactId>ballerina</artifactId>
-        <version>0.970.0-beta5</version>
+        <version>1</version>
     </parent>
 
     <groupId>org.ballerainax.hello</groupId>
-    <version>0.980.0</version>
+    <version>1.0.0</version>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>hello-extension</artifactId>
     <packaging>jar</packaging>
@@ -258,7 +258,7 @@
     <properties>
         <mvn.processor.plugin.version>2.2.4</mvn.processor.plugin.version>
         <junit.version>4.12</junit.version>
-        <ballerina.lang.version>0.990.2</ballerina.lang.version>
+        <ballerina.lang.version>0.991.0</ballerina.lang.version>
         <ballerina.source.directory>${project.build.directory}/../src/main/ballerina</ballerina.source.directory>
     </properties>
 </project>

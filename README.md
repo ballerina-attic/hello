@@ -18,10 +18,11 @@ Annotation based build extension implementation for ballerina.
 
 ## How to run
 
-1. Download and install JDK 8 or later
+1. Download and install JDK 8 or later.
 2. Get a clone or download the source from this repository (https://github.com/ballerinax/hello)
 3. Run the Maven command ``mvn clean  install`` from within the hello directory.
-4. Copy ``target/hello-extension-0.970.0.jar`` file to ``<BALLERINA_HOME>/bre/lib`` directory.
+4. Copy ``target/hello-extension-1.0.0.jar`` file to ``<BALLERINA_HOME>/bre/lib`` directory.
+4. Copy contents of ``target/generated-balo/repo`` directory to ``<BALLERINA_HOME>/lib/repo`` directory.
 5. Run ``ballerina build <bal_filename>`` to generate artifacts.
 
 The hello world artifacts will be created in a folder called target with following structure.
@@ -34,6 +35,7 @@ target/
 ### Annotation Usage Sample:
 ```ballerina
 import ballerina/http;
+import ballerina/log;
 import ballerinax/hello;
 
 @hello:Greeting { salutation: "Guten Tag!" }
@@ -41,10 +43,13 @@ import ballerinax/hello;
     basePath: "/helloWorld"
 }
 service helloWorld on new http:Listener(9091) {
-    resource function sayHello(http:Caller outboundEP, http:Request request) {
+    resource function sayHello(http:Caller caller, http:Request request) {
         http:Response response = new;
         response.setTextPayload("Hello, World from service helloWorld ! \n");
-        _ = outboundEP -> respond(response);
+        var responseResult = caller->respond(response);
+        if (responseResult is error) {
+            log:printError("error occurred while responding back to client", err = responseResult);
+        }
     }
 }
 ```
