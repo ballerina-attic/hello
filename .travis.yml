@@ -13,6 +13,10 @@
 # limitations under the License.
 
 language: java
+dist: trusty
+
+jdk:
+  - openjdk8
 
 cache:
   directories:
