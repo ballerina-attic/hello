@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'xyz.foo'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven {
+        url "http://maven.wso2.org/nexus/content/repositories/releases/"
+    }
+}
+
+dependencies {
+    implementation group: 'org.ballerinalang', name: 'ballerina-lang', version: '1.0.0'
+}
