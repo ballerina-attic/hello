@@ -6,5 +6,5 @@ public type HelloConfiguration record {|
 |};
 
 # Define an annotation named `Greeting`. Its type is `HelloConfiguration` and it can be
-# attached to services. 
+# attached to functions.
 public annotation HelloConfiguration Greeting on function;
