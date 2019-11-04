@@ -4,12 +4,6 @@
 # Log file
 *.log
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
 # Package Files #
 *.jar
 *.war
@@ -22,7 +16,6 @@
 hs_err_pid*
 
 target
-dependency-reduced-pom.xml
 
 # IDEA Files
 .idea/
@@ -33,7 +26,12 @@ dependency-reduced-pom.xml
 # MacOS
 *.DS_Store
 
-#Ballerina
-*.balx
-
 sample/*.txt
+
+.gradle
+build/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+*.lock

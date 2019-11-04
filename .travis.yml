@@ -20,4 +20,10 @@ jdk:
 
 cache:
   directories:
-  - $HOME/.m2
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+
+script:
+    - pushd hello-extension
+    - ./gradlew build
+    - popd

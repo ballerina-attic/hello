@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -16,34 +16,28 @@
  * under the License.
  */
 
-package org.ballerinax.hello;
+package xyz.foo.hello;
 
 /**
- * Model class to store greeting value.
+ * Model class to store the greeting.
  */
-public class HelloModel {
-    private static HelloModel instance;
+class HelloModel {
+
+    private static HelloModel instance = new HelloModel();
     private String greeting;
 
     private HelloModel() {
-        // Initialize with the default greeting.
-        greeting = "Hello!";
     }
 
-    public static HelloModel getInstance() {
-        synchronized (HelloModel.class) {
-            if (instance == null) {
-                instance = new HelloModel();
-            }
-        }
+    static HelloModel getInstance() {
         return instance;
     }
 
-    public String getGreeting() {
+    String getGreetings() {
         return greeting;
     }
 
-    public void setGreeting(String greeting) {
+    void setGreeting(String greeting) {
         this.greeting = greeting;
     }
 }
