@@ -7,6 +7,11 @@ Annotation based build extension implementation for ballerina.
 ## Features:
 - Generate text file with the greetings 
 
+## Compatibility
+|                     |    Version     |
+|:-------------------:|:--------------:|
+| Ballerina Language  | 1.2.x   |
+| JDK | 1.8.x or later          |
 
 ## Supported Annotations:
 
@@ -20,17 +25,11 @@ Annotation based build extension implementation for ballerina.
 
 1. Download and install JDK 8 or later.
 2. Get a clone or download the source from this repository (https://github.com/ballerinax/hello)
-3. Run the Maven command ``mvn clean  install`` from within the hello directory.
-4. Copy ``target/hello-extension-1.0.0.jar`` file to ``<BALLERINA_HOME>/bre/lib`` directory.
-4. Copy contents of ``target/generated-balo/repo`` directory to ``<BALLERINA_HOME>/lib/repo`` directory.
-5. Run ``ballerina build <bal_filename>`` to generate artifacts.
+3. Run the gradle build command ``gradle build`` from within the hello-extension directory.
+4. Copy ``build/libs/hello-extension-1.0-SNAPSHOT.jar`` file to ``<BALLERINA_HOME>/bre/lib`` directory.
+5. Run ``ballerina build greet`` from hello-world to generate the artifacts.
 
-The hello world artifacts will be created in a folder called target with following structure.
-```bash
-target/
-├── outputfilename.txt
-└── outputfilename.balx
-```
+The ``target/greetings/greet.txt`` file should contain the following text: ``Guten Tag! from salutation()``
 
 ### Annotation Usage Sample:
 ```ballerina

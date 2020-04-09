@@ -26,9 +26,9 @@ import org.ballerinalang.model.tree.FunctionNode;
 import org.ballerinalang.util.diagnostic.Diagnostic;
 import org.ballerinalang.util.diagnostic.DiagnosticLog;
 import org.wso2.ballerinalang.compiler.tree.BLangAnnotationAttachment;
-import org.wso2.ballerinalang.compiler.tree.expressions.BLangLiteral;
 import org.wso2.ballerinalang.compiler.tree.expressions.BLangRecordLiteral;
-import org.wso2.ballerinalang.compiler.tree.expressions.BLangRecordLiteral.BLangRecordKeyValue;
+import org.ballerinalang.model.tree.expressions.RecordLiteralNode.RecordField;
+import org.wso2.ballerinalang.compiler.tree.expressions.BLangRecordLiteral.BLangRecordKeyValueField;
 
 import java.io.File;
 import java.io.IOException;
@@ -67,14 +67,14 @@ public class HelloPlugin extends AbstractCompilerPlugin {
             }
 
             // Retrieve the fields of the annotation value.
-            List<BLangRecordKeyValue> annotFields =
-                    ((BLangRecordLiteral) ((BLangAnnotationAttachment) annotation).expr).getKeyValuePairs();
+            List<RecordField> annotFields = ((BLangRecordLiteral)((BLangAnnotationAttachment) annotation).expr).getFields();
 
             // In this particular case, there is no need to iterate through the list since our annotation only has
             // one field. So let's just take the first element of the fields list.
-            BLangRecordKeyValue salutationField = annotFields.get(0);
-            String annotFieldValue = ((BLangLiteral) salutationField.getValue()).getValue().toString();
-            String greeting = String.format("%s from %s()\n", annotFieldValue, functionNode.getName().getValue());
+            BLangRecordKeyValueField salutationField = (BLangRecordKeyValueField) annotFields.get(0);
+            String annotFieldName = salutationField.key.toString();
+            String annotFieldValue = salutationField.getValue().toString();
+            String greeting = String.format("%s from %s()\n", annotFieldValue, annotFieldName);
             HelloModel.getInstance().setGreeting(greeting);
         }
     }

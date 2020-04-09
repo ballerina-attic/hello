@@ -3,4 +3,4 @@ org-name= "bar"
 version= "0.1.0"
 
 [dependencies]
-"foo/hello" = {path = "../hello-annotation/target/balo/hello-2019r3-any-0.1.0.balo"}
+"foo/hello" = {path = "../hello-annotation/target/balo/hello-2020r1-any-0.1.0.balo"}
